@@ -1,24 +1,37 @@
 package my.leetcode;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-
 //https://leetcode.com/problems/remove-letter-to-equalize-frequency/
 class Solution {
     public boolean equalFrequency(String word) {
-        HashMap<Character, Integer> map = new HashMap<>();
-        for (char i : word.toCharArray()) {
-            map.put(i, map.getOrDefault(i, 0) + 1);
+        int[] freq = new int[26];
+        int length = word.length();
+        for (int i = 0; i < length; i++) {
+            char current = word.charAt(i);
+            freq[current - 'a']++;
         }
-        System.out.println(map.toString());
-        boolean oneUsed = false;
-        int initialElement = -1;
-        for (int i : map.values()) {
-            if (initialElement == -1) {
-                initialElement = i;
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] != 0) {
+                freq[i]--;
+                if (checkIfAllEqual(freq)) {
+                    return true;
+                }
+                freq[i]++;
             }
+        }
+        return false;
+    }
 
+    public boolean checkIfAllEqual(int[] a) {
+        int number = -1;
+        for (int i = 0; i < a.length; i++) {
+            int currentInt = a[i];
+            if (currentInt != 0) {
+                if (number == -1) {
+                    number = currentInt;
+                } else if (number != currentInt) {
+                    return false;
+                }
+            }
         }
         return true;
     }
