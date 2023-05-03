@@ -1,10 +1,7 @@
 package my.leetcode;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 /**
  * Definition for a binary tree node.
@@ -22,33 +19,28 @@ import java.util.stream.Collectors;
  * }
  */
 class BSTIterator {
-    private final List<Integer> inOrderList = new ArrayList<>();
-    private final Iterator<Integer> inOrderListIterator;
-    private int maxHeight = Integer.MIN_VALUE;
+    private final Integer[] finalArray;
+    private int pointer = 0;
 
     public BSTIterator(TreeNode root) {
-        converToInorderList(root, 1);
-        inOrderListIterator = inOrderList.iterator();
-
-        Integer[] finalArray = new Integer[maxHeight];
-        inOrderList.toArray(finalArray);
-        System.out.println(finalArray);
+        List<Integer> inOrderList = new ArrayList<>();
+        converToInorderList(root, 1, inOrderList);
+        finalArray = inOrderList.toArray(new Integer[0]);
     }
 
     public int next() {
-        return inOrderListIterator.next();
+        return finalArray[pointer++];
     }
 
     public boolean hasNext() {
-        return inOrderListIterator.hasNext();
+        return pointer < finalArray.length;
     }
 
-    private void converToInorderList(TreeNode root, int height) {
+    private void converToInorderList(TreeNode root, int height, List<Integer> inOrderList) {
         if (root != null) {
-            maxHeight = Math.max(maxHeight, height);
-            converToInorderList(root.left, height + 1);
+            converToInorderList(root.left, height + 1, inOrderList);
             inOrderList.add(root.val);
-            converToInorderList(root.right, height + 1);
+            converToInorderList(root.right, height + 1, inOrderList);
         }
     }
 }
