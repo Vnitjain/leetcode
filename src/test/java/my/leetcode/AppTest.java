@@ -7,7 +7,7 @@ public class AppTest {
     long startTime;
 
     @Test
-    public void shouldAnswerWithTrue() {
+    public void testSolution() {
 
     }
 
