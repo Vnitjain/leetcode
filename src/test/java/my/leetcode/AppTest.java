@@ -16,6 +16,6 @@ public class AppTest {
     }
 
     public void stopTimer() {
-        System.out.println(System.currentTimeMillis() - startTime);
+        System.out.println("Code Executed in : " + (System.currentTimeMillis() - startTime) + " millisecons");
     }
 }
