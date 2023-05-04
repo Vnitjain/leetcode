@@ -8,7 +8,9 @@ public class AppTest {
 
     @Test
     public void testSolution() {
-
+        startTimer();
+        s.repeatedSubstringPattern("abab");
+        stopTimer();
     }
 
     private void startTimer() {

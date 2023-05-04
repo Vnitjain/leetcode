@@ -1,5 +1,7 @@
 package my.leetcode;
 
-public class Solution {
-    
+class Solution {
+    public boolean repeatedSubstringPattern(String s) {
+
+    }
 }
