@@ -11,11 +11,11 @@ public class AppTest {
 
     }
 
-    public void startTimer() {
+    private void startTimer() {
         startTime = System.currentTimeMillis();
     }
 
-    public void stopTimer() {
+    private void stopTimer() {
         System.out.println("Code Executed in : " + (System.currentTimeMillis() - startTime) + " milliseconds");
     }
 }
