@@ -26,10 +26,10 @@ public class AppTest {
 
     @Test
     public void tp() {
-        System.out.println(s.doesItRepeatInString("abc", "abcabcabcabc"));
-        System.out.println(s.doesItRepeatInString("ab", "abcabcabcabc"));
-        System.out.println(s.doesItRepeatInString("ab", "aba"));
-        System.out.println(s.doesItRepeatInString("abc", "abcabcabcab"));
+        // System.out.println(s.doesItRepeatInString("abc", "abcabcabcabc"));
+        // System.out.println(s.doesItRepeatInString("ab", "abcabcabcabc"));
+        // System.out.println(s.doesItRepeatInString("ab", "aba"));
+        // System.out.println(s.doesItRepeatInString("abc", "abcabcabcab"));
 
     }
 

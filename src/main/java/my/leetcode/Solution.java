@@ -2,29 +2,22 @@ package my.leetcode;
 
 class Solution {
     public boolean repeatedSubstringPattern(String s) {
-        return isRepeatingPattern(0, "", s);
-    }
-
-    private boolean isRepeatingPattern(int currentIndex, String previous, String s) {
-        if (currentIndex < s.length() - 1) {
-            previous = previous + String.valueOf(s.charAt(currentIndex));
-            if (doesItRepeatInString(previous, s))
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (doesItRepeatInString(s.substring(0, i + 1), s))
                 return true;
-            return isRepeatingPattern(currentIndex + 1, previous, s);
         }
         return false;
     }
 
-    public boolean doesItRepeatInString(String previous, String s) {
-        int prevLength = previous.length();
-        int i = prevLength;
-        if (s.length() % prevLength != 0)
+    private boolean doesItRepeatInString(String searchTerm, String s) {
+        int searchTermLength = searchTerm.length();
+        int i = searchTermLength;
+        if (s.length() % searchTermLength != 0)
             return false;
         while (i < s.length()) {
-            if (!s.substring(i, i + prevLength).equals(previous)) {
+            if (!s.substring(i, i + searchTermLength).equals(searchTerm))
                 return false;
-            }
-            i += prevLength;
+            i += searchTermLength;
         }
         return true;
     }
