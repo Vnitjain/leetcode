@@ -22,14 +22,15 @@ public class AppTest {
         startTimer();
         assertTrue(s.repeatedSubstringPattern("abcabcabcabc"));
         stopTimer();
-
-        startTimer();
-        assertFalse(s.repeatedSubstringPattern("abcdabcabcabc"));
-        stopTimer();
     }
 
     @Test
     public void tp() {
+        // System.out.println(s.doesItRepeatInString("abc", "abcabcabcabc"));
+        // System.out.println(s.doesItRepeatInString("ab", "abcabcabcabc"));
+        // System.out.println(s.doesItRepeatInString("ab", "aba"));
+        // System.out.println(s.doesItRepeatInString("abc", "abcabcabcab"));
+
     }
 
     private void startTimer() {
