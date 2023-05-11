@@ -23,6 +23,14 @@ public class AppTest {
         assertFalse(s.isMonotonic(new int[] { 1, 3, 2 }));
         stopTimer();
 
+        startTimer();
+        assertTrue(s.isMonotonic(new int[] { 2, 2, 3, 3, 4 }));
+        stopTimer();
+
+        startTimer();
+        assertFalse(s.isMonotonic(new int[] { 2, 5, 3, 3, 4 }));
+        stopTimer();
+
     }
 
     private void startTimer() {
