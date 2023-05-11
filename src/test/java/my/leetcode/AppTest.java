@@ -10,18 +10,18 @@ public class AppTest {
 
     @Test
     public void testSolution() {
-        // startTimer();
-        // assertArrayEquals(new int[] { 1, 2, 4 }, s.plusOne(new int[] { 1, 2, 3 }));
-        // stopTimer();
+        startTimer();
+        assertArrayEquals(new int[] { 1, 2, 4 }, s.plusOne(new int[] { 1, 2, 3 }));
+        stopTimer();
 
-        // startTimer();
-        // assertArrayEquals(new int[] { 4, 3, 2, 2 }, s.plusOne(new int[] { 4, 3, 2, 1
-        // }));
-        // stopTimer();
+        startTimer();
+        assertArrayEquals(new int[] { 4, 3, 2, 2 }, s.plusOne(new int[] { 4, 3, 2, 1
+        }));
+        stopTimer();
 
-        // startTimer();
-        // assertArrayEquals(new int[] { 1, 0 }, s.plusOne(new int[] { 9 }));
-        // stopTimer();
+        startTimer();
+        assertArrayEquals(new int[] { 1, 0 }, s.plusOne(new int[] { 9 }));
+        stopTimer();
 
         startTimer();
         assertArrayEquals(new int[] { 1, 0, 0, 0 }, s.plusOne(new int[] { 9, 9, 9 }));
