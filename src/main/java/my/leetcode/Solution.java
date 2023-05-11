@@ -1,5 +1,9 @@
 package my.leetcode;
 
-public class Solution {
-    
+class Solution {
+    public boolean canMakeArithmeticProgression(int[] arr) {
+        for (int i : arr) {
+
+        }
+    }
 }
