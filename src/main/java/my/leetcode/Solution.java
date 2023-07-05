@@ -10,12 +10,13 @@ class Solution {
     private Stack<Character> reduceString(String string) {
         Stack<Character> stack = new Stack<Character>();
         for (int i = 0; i < string.length(); i++) {
-            if (string.charAt(i) == '#') {
+            char currentChar = string.charAt(i);
+            if (currentChar == '#') {
                 if (!stack.isEmpty()) {
                     stack.pop();
                 }
             } else {
-                stack.push(string.charAt(i));
+                stack.push(currentChar);
             }
         }
         return stack;
