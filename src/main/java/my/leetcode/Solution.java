@@ -1,21 +1,23 @@
 package my.leetcode;
 
+import java.util.Stack;
+
 class Solution {
     public boolean backspaceCompare(String s, String t) {
-        return reduceString(s).equalsIgnoreCase(reduceString(t));
+        return reduceString(s).equals(reduceString(t));
     }
 
-    private String reduceString(String string) {
-        int pointer = 0, length = string.length();
-        while (pointer < length) {
-            if (string.charAt(pointer) == '#') {
-                string = pointer == 0 ? string.substring(pointer + 1, length)
-                        : string.substring(0, pointer - 1) + string.substring(pointer-- + 1, length);
-                length = string.length();
+    private Stack<Character> reduceString(String string) {
+        Stack<Character> stack = new Stack<Character>();
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) == '#') {
+                if (!stack.isEmpty()) {
+                    stack.pop();
+                }
             } else {
-                pointer++;
+                stack.push(string.charAt(i));
             }
         }
-        return string;
+        return stack;
     }
 }
