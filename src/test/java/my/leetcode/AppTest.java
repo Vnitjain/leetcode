@@ -1,5 +1,7 @@
 package my.leetcode;
 
+import static org.junit.Assert.assertArrayEquals;
+
 import org.junit.Test;
 
 public class AppTest {
@@ -8,7 +10,8 @@ public class AppTest {
 
     @Test
     public void testSolution() {
-
+        Solution s = new Solution();
+        assertArrayEquals(new int[] { 2, 4 }, s.findErrorNums(new int[] { 1, 2, 3, 2 }));
     }
 
     private void startTimer() {
