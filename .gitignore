@@ -4,3 +4,6 @@
 *.class
 .idea
 .vscode
+.classpath
+.project
+.settings
