@@ -11,7 +11,9 @@ public class AppTest {
     @Test
     public void testSolution() {
         Solution s = new Solution();
+        startTimer();
         assertEquals(2, s.binaryGap(22));
+        stopTimer();
     }
 
     private void startTimer() {
