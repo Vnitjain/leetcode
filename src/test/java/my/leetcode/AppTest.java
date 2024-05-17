@@ -8,6 +8,17 @@ public class AppTest {
 
     @Test
     public void testSolution() {
+        startTimer();
+        s.groupAnagrams(new String[] { "eat", "tea", "tan", "ate", "nat", "bat" });
+        stopTimer();
+
+        startTimer();
+        s.groupAnagrams(new String[] { "" });
+        stopTimer();
+
+        startTimer();
+        s.groupAnagrams(new String[] { "a" });
+        stopTimer();
 
     }
 
