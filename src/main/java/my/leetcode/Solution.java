@@ -2,31 +2,29 @@ package my.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-        int length = strs.length;
-        String[] sortedStringsArray = new String[length];
-        List<List<String>> finalList = new ArrayList<>();
-        for (int i = 0; i < length; i++) {
-            sortedStringsArray[i] = sortCharacters(strs[i]);
-        }
-
-        boolean[] visited = new boolean[length];
-        for (int i = 0; i < length; i++) {
-            if (!visited[i]) {
-                List<String> tempList = new ArrayList<>();
-                tempList.add(strs[i]);
-                visited[i] = true;
-                for (int j = i + 1; j < length; j++) {
-                    if (!visited[j] && sortedStringsArray[i].equalsIgnoreCase(sortedStringsArray[j])) {
-                        tempList.add(strs[j]);
-                        visited[j] = true;
-                    }
-                }
-                finalList.add(tempList);
+        Map<String, List<String>> map = new HashMap<>();
+        for (int i = 0; i < strs.length; i++) {
+            String currentString = strs[i];
+            String sortedString = sortCharacters(currentString);
+            List<String> tempList = map.get(sortedString);
+            if (tempList == null) {
+                List<String> newList = new ArrayList<>();
+                newList.add(currentString);
+                map.put(sortedString, newList);
+            } else {
+                tempList.add(currentString);
+                map.put(sortedString, tempList);
             }
+        }
+        List<List<String>> finalList = new ArrayList<>();
+        for (String key : map.keySet()) {
+            finalList.add(map.get(key));
         }
         return finalList;
     }
