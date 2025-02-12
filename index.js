@@ -1,18 +1,15 @@
-function miniMaxSum(arr) {
-  let minMax = [Number.MAX_SAFE_INTEGER, Number.MIN_SAFE_INTEGER];
-  for (let i = 0; i < arr.length; i++) {
-    let j = i;
-    let sum = 0;
-    let count = 0;
-    while (count < 4) {
-      sum += arr[j];
-      j = (j + 1) % arr.length;
-      count++;
+function timeConversion(s) {
+  let [hours, min, sec] = s.split(":");
+  let ampm = sec.slice(2);
+  sec = sec.slice(0, 2);
+  if (ampm == "PM") {
+    if (hours !== "12") hours = String(parseInt(hours) + 12);
+  } else {
+    if (hours === "12") {
+      hours = "00";
     }
-    minMax[0] = Math.min(minMax[0], sum);
-    minMax[1] = Math.max(minMax[1], sum);
   }
-  console.log(minMax[0] + " " + minMax[1]);
+  return [hours, min, sec].join(":");
 }
 
-console.log(miniMaxSum([1, 3, 5, 7, 9]));
+timeConversion("07:05:45PM");
