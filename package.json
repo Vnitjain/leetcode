@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "compilerOptions": {
-    "target": "es6"
+    "target": "es2023"
   },
   "scripts": {
-    "start": "tsc index.ts && node index.js",
+    "start": "tsc && node index.js",
     "test": "jest index.test.ts"
   },
   "author": "Vinit Jain",
