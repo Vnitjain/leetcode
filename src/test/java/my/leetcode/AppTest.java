@@ -8,7 +8,8 @@ public class AppTest {
 
     @Test
     public void testSolution() {
-
+        System.out.println(s.gcdOfStrings("ABCABC", "ABC"));
+        System.out.println(s.gcdOfStrings("ABABAB", "ABAB"));
     }
 
     private void startTimer() {
