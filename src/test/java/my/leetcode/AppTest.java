@@ -8,7 +8,7 @@ public class AppTest {
 
     @Test
     public void testSolution() {
-
+        System.out.println(s.kidsWithCandies(new int[]{2,3,5,1,3},3));
     }
 
     private void startTimer() {
