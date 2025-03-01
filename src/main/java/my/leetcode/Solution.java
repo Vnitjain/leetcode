@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Solution {
     public int maxOperations(int[] nums, int k) {
         int operations = 0;
-        nums = Arrays.stream(nums).sorted().toArray();
+        Arrays.sort(nums);
         int i = 0, j = nums.length - 1;
         while (i < j) {
             int sum = nums[i] + nums[j];
