@@ -3,23 +3,26 @@ package my.leetcode;
 public class Solution {
     public int maxVowels(String s, int k) {
         int currentStringVowels = 0;
-        String vowels = "aeiou";
         int maxVowels = Integer.MIN_VALUE;
         for (int i = 0; i < k; i++)
-            if (vowels.indexOf(s.charAt(i)) > -1)
+            if (isVowel(s.charAt(i)))
                 currentStringVowels++;
 
         maxVowels = Math.max(maxVowels, currentStringVowels);
 
         for (int i = k; i < s.length(); i++) {
-            if (vowels.indexOf(s.charAt(i - k)) > -1)
+            if (isVowel(s.charAt(i - k)))
                 currentStringVowels--;
 
-            if (vowels.indexOf(s.charAt(i)) > -1)
+            if (isVowel(s.charAt(i)))
                 currentStringVowels++;
 
             maxVowels = Math.max(maxVowels, currentStringVowels);
         }
         return maxVowels;
+    }
+
+    private boolean isVowel(char c) {
+        return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
     }
 }
