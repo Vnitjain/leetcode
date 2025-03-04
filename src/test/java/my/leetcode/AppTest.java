@@ -7,8 +7,23 @@ public class AppTest {
     long startTime;
 
     @Test
-    public void testSolution() {
+    public void testExample1() {
+        startTimer();
+        int[] gain = { -5, 1, 5, 0, -7 };
+        int expected = 1;
+        int actual = s.largestAltitude(gain);
+        stopTimer();
+        org.junit.Assert.assertEquals(expected, actual);
+    }
 
+    @Test
+    public void testExample2() {
+        startTimer();
+        int[] gain = { -4, -3, -2, -1, 4, 3, 2 };
+        int expected = 0;
+        int actual = s.largestAltitude(gain);
+        stopTimer();
+        org.junit.Assert.assertEquals(expected, actual);
     }
 
     private void startTimer() {
