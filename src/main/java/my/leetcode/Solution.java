@@ -1,20 +1,35 @@
 package my.leetcode;
 
-public class Solution {
-    public int pivotIndex(int[] nums) {
-        int length = nums.length;
-        int[] prefix = new int[length];
-        int[] postfix = new int[length];
-        for (int i = 0; i < length; i++)
-            prefix[i] = i == 0 ? 0 + nums[i] : prefix[i - 1] + nums[i];
-        for (int i = length - 1; i > -1; i--)
-            postfix[i] = i == length - 1 ? 0 + nums[i] : nums[i] + postfix[i + 1];
-        for (int i = 0; i < length; i++) {
-            int pref = i == 0 ? 0 : prefix[i - 1];
-            int postf = i == length - 1 ? 0 : postfix[i + 1];
-            if (pref == postf)
-                return i;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+class Solution {
+    public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
+        Set<Integer> uNums1 = new HashSet<>();
+        Set<Integer> uNums2 = new HashSet<>();
+        List<List<Integer>> resultList = new ArrayList<>();
+        for (int num : nums1) {
+            uNums1.add(num);
         }
-        return -1;
+        for (int num : nums2) {
+            uNums2.add(num);
+        }
+        Set<Integer> tempList = new HashSet<>();
+        for (Integer num : nums1) {
+            if (!uNums2.contains(num)) {
+                tempList.add(num);
+            }
+        }
+        resultList.add(new ArrayList<>(tempList));
+        tempList = new HashSet<>();
+        for (Integer num : nums2) {
+            if (!uNums1.contains(num)) {
+                tempList.add(num);
+            }
+        }
+        resultList.add(new ArrayList<>(tempList));
+        return resultList;
     }
 }
