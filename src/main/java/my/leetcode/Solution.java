@@ -1,19 +1,18 @@
 package my.leetcode;
 
-import java.util.Stack;
-
 public class Solution {
     public String removeStars(String s) {
-        Stack<Character> stack = new Stack<>();
+        char[] stack = new char[s.length()];
+        int top = -1;
         for (Character character : s.toCharArray())
-            if (character >= 'a' && character <= 'z')
-                stack.push(character);
+            if (character == '*')
+                --top;
             else
-                stack.pop();
+                stack[++top] = character;
         String finalString = "";
-        for (Character character : stack)
-            finalString += String.valueOf(character);
-
+        while (top > -1) {
+            finalString = String.valueOf(stack[top--]) + finalString;
+        }
         return finalString;
     }
 }
