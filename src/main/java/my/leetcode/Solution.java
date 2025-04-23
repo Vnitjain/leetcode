@@ -2,11 +2,16 @@ package my.leetcode;
 
 class Solution {
     public char findTheDifference(String s, String t) {
-        char c = 0;
-        for (char cs : s.toCharArray())
-            c ^= cs;
-        for (char ct : t.toCharArray())
-            c ^= ct;
-        return c;
+        int[] alphabets = new int[26];
+
+        for (char i : s.toCharArray())
+            alphabets[i - 'a']++;
+
+        for (char i : t.toCharArray()) {
+            int character = i - 'a';
+            if (alphabets[character]-- < 1)
+                return i;
+        }
+        return '0';
     }
 }
