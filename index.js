@@ -5,5 +5,5 @@ function triangleType(nums) {
     let seen = new Set();
     for (let i = 0; i < 3; i++)
         seen.add(nums[i]);
-    return seen.size == 3 ? "scalene" : seen.size == 2 ? "isosceles" : seen.size == 1 ? "equilateral" : "none";
+    return seen.size == 3 ? "scalene" : seen.size == 2 ? "isosceles" : "equilateral";
 }
