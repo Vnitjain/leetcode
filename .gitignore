@@ -156,3 +156,8 @@ dist
 package-lock.json
 
 .DS_Store
+
+# Ignore build outputs
+/dist
+/build
+*.js.map
