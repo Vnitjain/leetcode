@@ -8,26 +8,30 @@
 
         push(val: number): void {
             this.stack.push(val);
-            if (val <= this.topMinStack())
+            const topMin = this.topMinStack()
+            if (topMin===undefined||val <= topMin)
                 this.minStack.push(val);
         }
 
         pop(): void {
             const top = this.top();
-            this.stack = this.stack.slice(0, this.stack.length - 1)
+            this.stack.pop()
             if (top === this.topMinStack())
-                this.minStack = this.minStack.slice(0, this.minStack.length - 1)
+                this.minStack.pop()
         }
 
         top(): number {
             return this.stack[this.stack.length - 1]
         }
 
-        topMinStack(): number {
-            return this.minStack[this.minStack.length - 1] ?? Number.MAX_SAFE_INTEGER;
+        topMinStack(): number | undefined {
+            if(this.minStack.length!==0)
+                return this.minStack[this.minStack.length - 1];
+            else 
+                return undefined;
         }
 
         getMin(): number {
-            return this.topMinStack();
+            return this.minStack[this.minStack.length - 1];
         }
     }
