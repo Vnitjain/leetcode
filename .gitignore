@@ -161,3 +161,6 @@ package-lock.json
 /dist
 /build
 *.js.map
+
+# zed files
+.zed
