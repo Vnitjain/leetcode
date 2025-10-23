@@ -12,7 +12,7 @@ export function minimumSumSubarray(
   let i = 0;
 
   while (i < nums.length) {
-    for (let j = l; j <= r && j + i < nums.length; j++) {
+    for (let j = l; j <= r && j + i <= nums.length; j++) {
       let curr = prefix[j + i] - prefix[i];
       if (curr > 0) minimum = Math.min(curr, minimum);
     }
