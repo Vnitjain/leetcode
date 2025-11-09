@@ -1,5 +1,8 @@
 package my.leetcode;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Brute Force approach:
  * Simple n^2 approach to compare each element with the other elements and find
@@ -11,13 +14,15 @@ package my.leetcode;
 class Solution {
     public int countCompleteDayPairs(int[] hours) {
         int finalCount = 0;
+        Map<Integer, Integer> remainders = new HashMap<>();
         for (int i = 0; i < hours.length; i++) {
-            for (int j = i + 1; j < hours.length; j++) {
-                int sum = hours[i] + hours[j];
-                if (sum % 24 == 0) {
-                    finalCount++;
-                }
+            int remainder = hours[i] % 24;
+            if (remainder == 0) {
+                finalCount += remainders.getOrDefault(remainder, 0);
+            } else {
+                finalCount += remainders.getOrDefault(24 - remainder, 0);
             }
+            remainders.put(remainder, remainders.getOrDefault(remainder, 0) + 1);
         }
         return finalCount;
     }

@@ -8,8 +8,12 @@ public class AppTest {
     long startTime;
 
     @Test
-    public void test() {
+    public void test1() {
         assertEquals(2, s.countCompleteDayPairs(new int[] { 12, 12, 30, 24, 24 }));
+    }
+
+    @Test
+    public void test2() {
         assertEquals(3, s.countCompleteDayPairs(new int[] { 72, 48, 24, 3 }));
     }
 
