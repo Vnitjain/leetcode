@@ -1,6 +1,7 @@
 package my.leetcode;
 
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class AppTest {
     Solution s = new Solution();
@@ -8,7 +9,8 @@ public class AppTest {
 
     @Test
     public void test() {
-
+        assertEquals(2, s.countCompleteDayPairs(new int[] { 12, 12, 30, 24, 24 }));
+        assertEquals(3, s.countCompleteDayPairs(new int[] { 72, 48, 24, 3 }));
     }
 
     private void startTimer() {
