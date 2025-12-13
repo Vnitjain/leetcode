@@ -8,7 +8,7 @@ public class AppTest {
 
     @Test
     public void test() {
-
+        s.answerQueries(new int[] { 4, 5, 2, 1 }, new int[] { 3, 10, 21 });
     }
 
     private void startTimer() {
