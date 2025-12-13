@@ -4,23 +4,21 @@ import java.util.Arrays;
 
 public class Solution {
     public int[] answerQueries(int[] nums, int[] queries) {
-        int[] solution = new int[queries.length];
+        int[] prefix = new int[nums.length + 1];
         Arrays.sort(nums);
-
-        System.out.println(Arrays.toString(nums));
+        for (int i = 1; i < prefix.length; i++)
+            prefix[i] = prefix[i - 1] + nums[i - 1];
 
         for (int i = 0; i < queries.length; i++) {
-            int sum = 0;
             int j = 0;
-            while (j < nums.length) {
-                if (sum + nums[j] <= queries[i])
-                    sum += nums[j++];
+            while (j < prefix.length) {
+                if (prefix[j] <= queries[i])
+                    j++;
                 else
                     break;
             }
-
-            solution[i] = j;
+            queries[i] = j - 1;
         }
-        return solution;
+        return queries;
     }
 }
